@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.example.dpt.pulltorefreshdemo"
+        >
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+            android:name=".DemoListApp"
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme"
+            >
+        <activity
+                android:name=".DemoListActivity"
+                android:label="@string/app_name"
+                >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".types.LinearLayoutActivity"
+                android:label="@string/linear_layout"
+                />
+        <activity
+                android:name=".types.TextViewActivity"
+                android:label="@string/a_text_view"
+                />
+        <activity
+                android:name=".types.ListViewActivity"
+                android:label="@string/a_list_view"
+                />
+        <activity
+                android:name=".types.WebViewActivity"
+                android:label="@string/a_web_view"
+                />
+        <activity
+                android:name=".types.PhotosActivity"
+                android:label="@string/a_photo_set"
+                />
+        <activity
+                android:name=".types.ChangeHeaderColorActivity"
+                android:label="@string/change_header_color"
+                />
+        <activity
+                android:name=".types.TestActivity"
+                android:label="@string/change_header_color"
+                />
+        <activity
+                android:name=".types.ScrollViewActivity"
+                android:label="@string/a_scroll_view"
+                />
+    </application>
+
+</manifest>
