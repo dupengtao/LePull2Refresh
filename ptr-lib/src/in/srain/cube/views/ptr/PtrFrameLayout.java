@@ -44,7 +44,7 @@ public class PtrFrameLayout extends FrameLayout {
     private int mContainerId = 0;
     // config
     private int mDurationToClose = 200;
-    private int mDurationToCloseHeader = 1000;
+    private int mDurationToCloseHeader = 500;
     private boolean mKeepHeaderWhenRefresh = true;
     private boolean mPullToRefresh = false;
     private View mHeaderView;
@@ -301,7 +301,7 @@ public class PtrFrameLayout extends FrameLayout {
                     dispatchTouchEventSupper(e);
                 }
 
-                if (mStatus == PTR_STATUS_COMPLETE || mStatus == PTR_STATUS_LOADING) {
+                if (mStatus == PTR_STATUS_LOADING) {
                     return dispatchTouchEventSupper(e);
                 }
 
@@ -335,16 +335,14 @@ public class PtrFrameLayout extends FrameLayout {
                 if (moveDown && mPtrHandler != null && !mPtrHandler.checkCanDoRefresh(this, mContent, mHeaderView)) {
                     return dispatchTouchEventSupper(e);
                 }
-
+                // start optimize refresh
                 int currentPosY = mPtrIndicator.getCurrentPosY();
                 int lastPosY = mPtrIndicator.getLastPosY();
-                float y = e.getY();
-                LogHelper.e("currentPosY", "currentPosY----" + currentPosY);
-                LogHelper.e("currentPosY", "lastPosY----" + lastPosY);
-                LogHelper.e("currentPosY", "e.getY()----" + y);
+                LogHelper.e(LOG_TAG, "ACTION_MOVE ---- currentPosY ----" + currentPosY +" ---- lastPosY ----"+lastPosY);
                 if(mStatus == PTR_STATUS_LOADING && moveDown && lastPosY >=mHeaderHeight){
                     return dispatchTouchEventSupper(e);
                 }
+                //end optimize refresh
                 if ((moveUp && canMoveUp) || moveDown) {
                     LogHelper.e("offsetY", "offsetY----" + offsetY);
                     movePos(offsetY);

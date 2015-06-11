@@ -52,7 +52,7 @@ public class ListViewActivity extends Activity {
                     public void run() {
                         mPtrFrame.refreshComplete();
                     }
-                }, 5000);
+                }, 10000);
             }
 
             @Override
@@ -60,6 +60,6 @@ public class ListViewActivity extends Activity {
                 return PtrDefaultHandler.checkContentCanBePulledDown(frame, mListView, header);
             }
         });
-        mPtrFrame.setEnabledNextPtrAtOnce(true);
+        //mPtrFrame.setEnabledNextPtrAtOnce(true);
     }
 }

@@ -55,6 +55,11 @@ public class SimpleLeLoadingHeader extends RelativeLayout implements PtrUIHandle
     public void onUIReset(PtrFrameLayout frame) {
         needRest = false;
         LogHelper.e(LOG_TAG, "onUIReset ");
+        if(frame.isAutoRefresh()){
+            LogHelper.e(LOG_TAG,"AutoRefresh --- onUIReset");
+            //mSimpleLeLoadingView.autoPull2RefreshAnim();
+            mSimpleLeLoadingView.cancelAutoPull2RefreshAnim();
+        }
     }
 
     @Override
@@ -67,6 +72,13 @@ public class SimpleLeLoadingHeader extends RelativeLayout implements PtrUIHandle
     public void onUIRefreshBegin(PtrFrameLayout frame) {
         needRest = true;
         LogHelper.e(LOG_TAG, "onUIRefreshBegin --- percent ---");
+
+        if(frame.isAutoRefresh()){
+            LogHelper.e(LOG_TAG,"AutoRefresh --- onUIRefreshBegin");
+            mSimpleLeLoadingView.autoPull2RefreshAnim();
+        }
+
+
     }
 
     @Override
@@ -76,7 +88,7 @@ public class SimpleLeLoadingHeader extends RelativeLayout implements PtrUIHandle
             //if (st == PtrFrameLayout.PTR_STATUS_COMPLETE || st == PtrFrameLayout.PTR_STATUS_LOADING) {
             //    return ;
             //}
-            mSimpleLeLoadingView.completeAnim();
+            //mSimpleLeLoadingView.completeAnim();
         }
         LogHelper.e(LOG_TAG, "onUIRefreshComplete --- ");
     }
@@ -84,10 +96,12 @@ public class SimpleLeLoadingHeader extends RelativeLayout implements PtrUIHandle
     @Override
     public void onUIPositionChange(PtrFrameLayout frame, boolean isUnderTouch, byte status, PtrIndicator ptrIndicator) {
 
+        // start optimize refresh
         byte st = frame.getStatus();
         if (st == PtrFrameLayout.PTR_STATUS_COMPLETE || st == PtrFrameLayout.PTR_STATUS_LOADING) {
             return ;
         }
+        // end optimize refresh
         float percent = ptrIndicator.getCurrentPercent();
         long l = Float.valueOf(percent * 1000).longValue();
         if (l > 0) {

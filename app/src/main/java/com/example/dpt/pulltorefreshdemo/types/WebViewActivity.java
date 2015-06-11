@@ -49,7 +49,7 @@ public class WebViewActivity extends Activity{
             public void run() {
                 mPtrFrame.autoRefresh();
             }
-        },100);
+        },200);
     }
 
     private void loadData() {
