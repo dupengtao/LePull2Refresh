@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.letv.leui.widget.ultra.pull2refresh.ptr.PtrClassicFrameLayout
+<com.demo.widget.ptr.PtrClassicFrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:ptr="http://schemas.android.com/apk/res-auto"
         android:id="@+id/ptr_demo_list"
@@ -17,4 +17,4 @@
             android:clipToPadding="false"
             android:background="@android:color/white"
             />
-</com.letv.leui.widget.ultra.pull2refresh.ptr.PtrClassicFrameLayout>
+</com.demo.widget.ptr.PtrClassicFrameLayout>

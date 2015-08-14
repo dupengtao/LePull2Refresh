@@ -1,4 +1,4 @@
-package com.letv.leui.widget.ultra.pull2refresh.ptr.indicator;
+package com.demo.widget.ptr.indicator;
 
 import android.graphics.PointF;
 
@@ -51,6 +51,10 @@ public class PtrIndicator {
         setOffset(offsetX, offsetY / mResistance);
     }
 
+    protected void processOnMove(float currentX, float currentY, float offsetX, float offsetY,boolean isLoadingStatus) {
+        setOffset(offsetX, offsetY);
+    }
+
     public void setRatioOfHeaderHeightToRefresh(float ratio) {
         mRatioOfHeaderHeightToRefresh = ratio;
         mOffsetToRefresh = (int) (mHeaderHeight * ratio);
@@ -79,6 +83,13 @@ public class PtrIndicator {
         float offsetX = x - mPtLastMove.x;
         float offsetY = (y - mPtLastMove.y);
         processOnMove(x, y, offsetX, offsetY);
+        mPtLastMove.set(x, y);
+    }
+
+    public final void onMove(float x, float y,boolean isLoadingStatus) {
+        float offsetX = x - mPtLastMove.x;
+        float offsetY = (y - mPtLastMove.y);
+        processOnMove(x, y, offsetX, offsetY,isLoadingStatus);
         mPtLastMove.set(x, y);
     }
 
@@ -197,4 +208,6 @@ public class PtrIndicator {
     public boolean willOverTop(int to) {
         return to < POS_START;
     }
+
+
 }

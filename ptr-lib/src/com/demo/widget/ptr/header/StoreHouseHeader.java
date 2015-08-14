@@ -1,4 +1,4 @@
-package com.letv.leui.widget.ultra.pull2refresh.ptr.header;
+package com.demo.widget.ptr.header;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -8,10 +8,10 @@ import android.graphics.PointF;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.Transformation;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrFrameLayout;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrUIHandler;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.indicator.PtrIndicator;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.util.PtrLocalDisplay;
+import com.demo.widget.ptr.PtrFrameLayout;
+import com.demo.widget.ptr.PtrUIHandler;
+import com.demo.widget.ptr.indicator.PtrIndicator;
+import com.demo.widget.ptr.util.PtrLocalDisplay;
 
 import java.util.ArrayList;
 

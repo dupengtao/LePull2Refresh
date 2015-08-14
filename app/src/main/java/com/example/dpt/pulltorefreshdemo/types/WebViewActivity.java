@@ -6,10 +6,10 @@ import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.example.dpt.pulltorefreshdemo.R;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrClassicFrameLayout;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrDefaultHandler;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrFrameLayout;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrHandler;
+import com.demo.widget.ptr.PtrClassicFrameLayout;
+import com.demo.widget.ptr.PtrDefaultHandler;
+import com.demo.widget.ptr.PtrFrameLayout;
+import com.demo.widget.ptr.PtrHandler;
 
 /**
  * Created by dupengtao on 15/6/2.

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.letv.leui.widget.ultra.pull2refresh.ptr.header;
+package com.demo.widget.ptr.header;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -28,7 +28,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.animation.*;
 import android.view.animation.Interpolator;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.util.PtrLocalDisplay;
+import com.demo.widget.ptr.util.PtrLocalDisplay;
 
 import java.util.ArrayList;
 

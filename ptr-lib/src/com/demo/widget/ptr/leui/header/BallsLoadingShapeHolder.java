@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.letv.leui.widget.ultra.pull2refresh.ptr.leui.header;
+package com.demo.widget.ptr.leui.header;
 
 import android.graphics.Paint;
 import android.graphics.RadialGradient;

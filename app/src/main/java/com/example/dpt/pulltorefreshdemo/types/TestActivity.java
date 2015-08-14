@@ -9,11 +9,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.example.dpt.pulltorefreshdemo.R;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrClassicFrameLayout;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrDefaultHandler;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrFrameLayout;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrUIHandlerHook;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.leui.header.SimpleLeLoadingHeader;
+import com.demo.widget.ptr.PtrClassicFrameLayout;
+import com.demo.widget.ptr.PtrDefaultHandler;
+import com.demo.widget.ptr.PtrFrameLayout;
+import com.demo.widget.ptr.PtrUIHandlerHook;
+import com.demo.widget.ptr.leui.header.SimpleLeLoadingHeader;
 
 import java.util.ArrayList;
 import java.util.List;

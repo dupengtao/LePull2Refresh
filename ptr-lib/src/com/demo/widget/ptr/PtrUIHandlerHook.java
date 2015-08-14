@@ -1,4 +1,4 @@
-package com.letv.leui.widget.ultra.pull2refresh.ptr;
+package com.demo.widget.ptr;
 
 /**
  * Run a hook runnable, the runnable will run only once.

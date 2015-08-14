@@ -1,4 +1,4 @@
-package com.letv.leui.widget.ultra.pull2refresh.ptr.util;
+package com.demo.widget.ptr.util;
 
 import android.content.Context;
 import android.util.DisplayMetrics;

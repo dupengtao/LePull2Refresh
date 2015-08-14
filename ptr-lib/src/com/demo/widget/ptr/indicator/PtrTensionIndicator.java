@@ -1,4 +1,4 @@
-package com.letv.leui.widget.ultra.pull2refresh.ptr.indicator;
+package com.demo.widget.ptr.indicator;
 
 public class PtrTensionIndicator extends PtrIndicator {
 

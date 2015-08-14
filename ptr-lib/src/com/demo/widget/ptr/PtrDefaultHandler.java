@@ -1,4 +1,4 @@
-package com.letv.leui.widget.ultra.pull2refresh.ptr;
+package com.demo.widget.ptr;
 
 import android.view.View;
 import android.widget.AbsListView;

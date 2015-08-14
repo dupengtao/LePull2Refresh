@@ -1,8 +1,8 @@
-package com.letv.leui.widget.ultra.pull2refresh.ptr;
+package com.demo.widget.ptr;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.leui.header.SimpleLeLoadingHeader;
+import com.demo.widget.ptr.leui.header.SimpleLeLoadingHeader;
 
 public class PtrClassicFrameLayout extends PtrFrameLayout {
 

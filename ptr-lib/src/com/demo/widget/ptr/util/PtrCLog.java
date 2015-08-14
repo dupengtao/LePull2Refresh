@@ -1,11 +1,13 @@
-package com.letv.leui.widget.ultra.pull2refresh.ptr.leui.util;
+package com.demo.widget.ptr.util;
 
 import android.util.Log;
 
 /**
- * Created by dupengtao on 15-5-26.
+ * An encapsulation of {@link Log}, enable log level and print log with parameters.
+ *
+ * @author http://www.liaohuqiu.net/
  */
-public class LogHelper {
+public class PtrCLog {
 
     public static final int LEVEL_VERBOSE = 0;
     public static final int LEVEL_DEBUG = 1;
@@ -14,8 +16,8 @@ public class LogHelper {
     public static final int LEVEL_ERROR = 4;
     public static final int LEVEL_FATAL = 5;
 
-    //private static int sLevel = LEVEL_VERBOSE;
-    private static int sLevel = LEVEL_FATAL;
+    private static int sLevel = LEVEL_VERBOSE;
+
     /**
      * set log level, the level lower than this level will not be logged
      *

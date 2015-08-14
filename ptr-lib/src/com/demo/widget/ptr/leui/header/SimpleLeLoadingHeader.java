@@ -1,14 +1,15 @@
-package com.letv.leui.widget.ultra.pull2refresh.ptr.leui.header;
+package com.demo.widget.ptr.leui.header;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrFrameLayout;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrUIHandler;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.R;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.indicator.PtrIndicator;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.leui.util.LogHelper;
+import com.demo.widget.ptr.PtrFrameLayout;
+import com.demo.widget.ptr.PtrUIHandler;
+import com.demo.widget.ptr.R;
+import com.demo.widget.ptr.indicator.PtrIndicator;
+import com.demo.widget.ptr.leui.util.LogHelper;
 
 import java.util.ArrayList;
 
@@ -34,7 +35,7 @@ public class SimpleLeLoadingHeader extends RelativeLayout implements PtrUIHandle
     }
 
     private void initView() {
-        //this.setBackgroundColor(Color.parseColor("#ebebeb"));
+        this.setBackgroundColor(Color.BLUE);
         LayoutParams rLP = new LayoutParams(LayoutParams.MATCH_PARENT, 210);
         this.setLayoutParams(rLP);
         View rootView = View.inflate(mContext, R.layout.le_ptr_simple_loading_header, this);

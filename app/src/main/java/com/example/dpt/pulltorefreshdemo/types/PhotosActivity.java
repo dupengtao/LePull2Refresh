@@ -13,10 +13,10 @@ import com.example.dpt.pulltorefreshdemo.net.VolleyClient;
 import com.example.dpt.pulltorefreshdemo.net.VolleyController;
 import com.example.dpt.pulltorefreshdemo.recyclerview.MarginDecoration;
 import com.example.dpt.pulltorefreshdemo.recyclerview.PhotoItemHolder;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrClassicFrameLayout;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrDefaultHandler;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrFrameLayout;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrHandler;
+import com.demo.widget.ptr.PtrClassicFrameLayout;
+import com.demo.widget.ptr.PtrDefaultHandler;
+import com.demo.widget.ptr.PtrFrameLayout;
+import com.demo.widget.ptr.PtrHandler;
 
 import java.util.ArrayList;
 import java.util.Arrays;

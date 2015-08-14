@@ -1,4 +1,4 @@
-package com.letv.leui.widget.ultra.pull2refresh.ptr;
+package com.demo.widget.ptr;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -7,15 +7,15 @@ import android.view.*;
 import android.widget.FrameLayout;
 import android.widget.Scroller;
 import android.widget.TextView;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.indicator.PtrIndicator;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.leui.header.SimpleLeLoadingHeader;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.leui.util.LogHelper;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.util.PtrCLog;
+import com.demo.widget.ptr.indicator.PtrIndicator;
+import com.demo.widget.ptr.leui.header.SimpleLeLoadingHeader;
+import com.demo.widget.ptr.leui.util.LogHelper;
+import com.demo.widget.ptr.util.PtrCLog;
 
 /**
  * This layout view for "Pull to Refresh(Ptr)" support all of the view, you can contain everything you want.
  * support: pull to refresh / release to refresh / auto refresh / keep header view while refreshing / hide header view while refreshing
- * It defines {@link com.letv.leui.widget.ultra.pull2refresh.ptr.PtrUIHandler}, which allows you customize the UI easily.
+ * It defines {@link com.demo.widget.ptr.PtrUIHandler}, which allows you customize the UI easily.
  */
 public class PtrFrameLayout extends FrameLayout {
 
@@ -194,7 +194,7 @@ public class PtrFrameLayout extends FrameLayout {
         if (mContent != null) {
             measureContentView(mContent, widthMeasureSpec, heightMeasureSpec);
             if (DEBUG && DEBUG_LAYOUT) {
-                ViewGroup.MarginLayoutParams lp = (MarginLayoutParams) mContent.getLayoutParams();
+                MarginLayoutParams lp = (MarginLayoutParams) mContent.getLayoutParams();
                 PtrCLog.d(LOG_TAG, "onMeasure content, width: %s, height: %s, margin: %s %s %s %s",
                         getMeasuredWidth(), getMeasuredHeight(),
                         lp.leftMargin, lp.topMargin, lp.rightMargin, lp.bottomMargin);
@@ -306,7 +306,13 @@ public class PtrFrameLayout extends FrameLayout {
                 //return dispatchTouchEventSupper(e);
             case MotionEvent.ACTION_MOVE:
                 mLastMoveEvent = e;
-                mPtrIndicator.onMove(e.getX(), e.getY());
+                if(mStatus == PTR_STATUS_LOADING) {
+                    mPtrIndicator.onMove(e.getX(), e.getY(),true);
+                    LogHelper.e(LOG_TAG, "MotionEvent.ACTION_MOVE loading status --" + mStatus);
+                }else {
+                    LogHelper.e(LOG_TAG, "MotionEvent.ACTION_MOVE else status --" + mStatus);
+                    mPtrIndicator.onMove(e.getX(), e.getY());
+                }
                 float offsetX = mPtrIndicator.getOffsetX();
                 float offsetY = mPtrIndicator.getOffsetY();
 
@@ -335,7 +341,7 @@ public class PtrFrameLayout extends FrameLayout {
                 // start optimize refresh
                 int currentPosY = mPtrIndicator.getCurrentPosY();
                 int lastPosY = mPtrIndicator.getLastPosY();
-                LogHelper.e(LOG_TAG, "ACTION_MOVE ---- currentPosY ----" + currentPosY +" ---- lastPosY ----"+lastPosY);
+                LogHelper.e(LOG_TAG, "ACTION_MOVE ---- currentPosY ----" + currentPosY + " ---- lastPosY ----" + lastPosY);
                 if(mStatus == PTR_STATUS_LOADING && moveDown && lastPosY >=mHeaderHeight){
                     return dispatchTouchEventSupper(e);
                 }
@@ -498,9 +504,9 @@ public class PtrFrameLayout extends FrameLayout {
      * Scroll back to to if is not under touch
      */
     private void tryScrollBackToTop() {
-        LogHelper.e(LOG_TAG,"tryToScrollTo  tryScrollBackToTop1");
+        LogHelper.e(LOG_TAG, "tryToScrollTo  tryScrollBackToTop1");
         if (!mPtrIndicator.isUnderTouch()) {
-            LogHelper.e(LOG_TAG,"tryToScrollTo  tryScrollBackToTop2");
+            LogHelper.e(LOG_TAG, "tryToScrollTo  tryScrollBackToTop2");
             mScrollChecker.tryToScrollTo(PtrIndicator.POS_START, mDurationToCloseHeader);
         }
     }
@@ -561,11 +567,11 @@ public class PtrFrameLayout extends FrameLayout {
      * If at the top and not in loading, reset
      */
     private boolean tryToNotifyReset() {
-        LogHelper.e(LOG_TAG,"tryToNotifyReset1");
+        LogHelper.e(LOG_TAG, "tryToNotifyReset1");
         if ((mStatus == PTR_STATUS_COMPLETE || mStatus == PTR_STATUS_PREPARE) && mPtrIndicator.isInStartPosition()) {
-            LogHelper.e(LOG_TAG,"tryToNotifyReset2");
+            LogHelper.e(LOG_TAG, "tryToNotifyReset2");
             if (mPtrUIHandlerHolder.hasHandler()) {
-                LogHelper.e(LOG_TAG,"tryToNotifyReset3");
+                LogHelper.e(LOG_TAG, "tryToNotifyReset3");
                 mPtrUIHandlerHolder.onUIReset(this);
                 if (DEBUG) {
                     PtrCLog.i(LOG_TAG, "PtrUIHandler: onUIReset");
@@ -679,7 +685,7 @@ public class PtrFrameLayout extends FrameLayout {
             }
             mPtrUIHandlerHolder.onUIRefreshComplete(this);
         }
-        LogHelper.e(LOG_TAG,"tryToScrollTo notifyUIRefreshComplete");
+        LogHelper.e(LOG_TAG, "tryToScrollTo notifyUIRefreshComplete");
         mPtrIndicator.onUIRefreshComplete();
         tryScrollBackToTopAfterComplete();
         tryToNotifyReset();
@@ -1057,9 +1063,9 @@ public class PtrFrameLayout extends FrameLayout {
         }
 
         public void tryToScrollTo(int to, int duration) {
-            LogHelper.e(LOG_TAG,"tryToScrollTo -- 1");
+            LogHelper.e(LOG_TAG, "tryToScrollTo -- 1");
             if (mPtrIndicator.isAlreadyHere(to)) {
-                LogHelper.e(LOG_TAG,"tryToScrollTo -- 2");
+                LogHelper.e(LOG_TAG, "tryToScrollTo -- 2");
                 return;
             }
             mStart = mPtrIndicator.getCurrentPosY();
@@ -1074,13 +1080,13 @@ public class PtrFrameLayout extends FrameLayout {
 
             // fix #47: Scroller should be reused, https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh/issues/47
             if (!mScroller.isFinished()) {
-                LogHelper.e(LOG_TAG,"tryToScrollTo -- 3");
+                LogHelper.e(LOG_TAG, "tryToScrollTo -- 3");
                 mScroller.forceFinished(true);
             }
 
 
             mScroller.startScroll(0, 0, 0, distance, duration);
-            LogHelper.e(LOG_TAG, "tryToScrollTo --- distance=" + distance + "--- duration=" + duration*100);
+            LogHelper.e(LOG_TAG, "tryToScrollTo --- distance=" + distance + "--- duration=" + duration * 100);
             post(this);
             mIsRunning = true;
         }

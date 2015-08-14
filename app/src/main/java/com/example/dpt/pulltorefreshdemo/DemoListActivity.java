@@ -10,9 +10,9 @@ import android.view.*;
 import com.example.dpt.pulltorefreshdemo.recyclerview.MarginDecoration;
 import com.example.dpt.pulltorefreshdemo.recyclerview.TextViewHolder;
 import com.example.dpt.pulltorefreshdemo.types.*;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrClassicFrameLayout;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrDefaultHandler;
-import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrFrameLayout;
+import com.demo.widget.ptr.PtrClassicFrameLayout;
+import com.demo.widget.ptr.PtrDefaultHandler;
+import com.demo.widget.ptr.PtrFrameLayout;
 
 
 public class DemoListActivity extends Activity {

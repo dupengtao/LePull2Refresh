@@ -1,6 +1,6 @@
-package com.letv.leui.widget.ultra.pull2refresh.ptr;
+package com.demo.widget.ptr;
 
-import com.letv.leui.widget.ultra.pull2refresh.ptr.indicator.PtrIndicator;
+import com.demo.widget.ptr.indicator.PtrIndicator;
 
 /**
  * A single linked list to wrap PtrUIHandler

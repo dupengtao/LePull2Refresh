@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.letv.leui.widget.ultra.pull2refresh.ptr.PtrClassicFrameLayout
+<com.demo.widget.ptr.PtrClassicFrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/ptr_demo_list"
         android:layout_width="match_parent"
@@ -21,4 +21,4 @@
 
             >
     </TextView>
-</com.letv.leui.widget.ultra.pull2refresh.ptr.PtrClassicFrameLayout>
+</com.demo.widget.ptr.PtrClassicFrameLayout>
