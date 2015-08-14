@@ -9,10 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.example.dpt.pulltorefreshdemo.R;
-import in.srain.cube.views.ptr.PtrClassicFrameLayout;
-import in.srain.cube.views.ptr.PtrDefaultHandler;
-import in.srain.cube.views.ptr.PtrFrameLayout;
-import in.srain.cube.views.ptr.leui.header.SimpleLeLoadingHeader;
+import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrClassicFrameLayout;
+import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrDefaultHandler;
+import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrFrameLayout;
+import com.letv.leui.widget.ultra.pull2refresh.ptr.leui.header.SimpleLeLoadingHeader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +53,7 @@ public class ChangeHeaderColorActivity extends Activity {
                     public void run() {
                         mPtrFrame.refreshComplete();
                     }
-                }, 1500);
+                }, 800);
             }
 
             @Override

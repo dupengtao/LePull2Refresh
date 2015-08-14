@@ -30,6 +30,4 @@ android {
     }
 }
 
-dependencies {
-}
-apply from: './gradle-mvn-push.gradle'
+

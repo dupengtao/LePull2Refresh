@@ -6,9 +6,10 @@ import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.example.dpt.pulltorefreshdemo.R;
-import in.srain.cube.views.ptr.PtrClassicFrameLayout;
-import in.srain.cube.views.ptr.PtrFrameLayout;
-import in.srain.cube.views.ptr.PtrHandler;
+import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrClassicFrameLayout;
+import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrDefaultHandler;
+import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrFrameLayout;
+import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrHandler;
 
 /**
  * Created by dupengtao on 15/6/2.
@@ -34,7 +35,7 @@ public class WebViewActivity extends Activity{
         mPtrFrame.setPtrHandler(new PtrHandler() {
             @Override
             public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
-                return mWebView.getScrollY() == 0;
+                return PtrDefaultHandler.checkContentCanBePulledDown(frame, mWebView, header);
             }
 
             @Override
@@ -49,7 +50,7 @@ public class WebViewActivity extends Activity{
             public void run() {
                 mPtrFrame.autoRefresh();
             }
-        },200);
+        }, 200);
     }
 
     private void loadData() {

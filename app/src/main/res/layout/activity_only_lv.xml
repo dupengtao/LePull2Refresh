@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<in.srain.cube.views.ptr.PtrClassicFrameLayout
+<com.letv.leui.widget.ultra.pull2refresh.ptr.PtrClassicFrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/ptr_demo_list"
         android:layout_width="match_parent"
@@ -15,4 +15,4 @@
             android:divider="@android:color/transparent"
             android:dividerHeight="10dp"
             android:background="@android:color/white"/>
-</in.srain.cube.views.ptr.PtrClassicFrameLayout>
+</com.letv.leui.widget.ultra.pull2refresh.ptr.PtrClassicFrameLayout>

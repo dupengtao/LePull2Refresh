@@ -10,9 +10,9 @@ import android.view.*;
 import com.example.dpt.pulltorefreshdemo.recyclerview.MarginDecoration;
 import com.example.dpt.pulltorefreshdemo.recyclerview.TextViewHolder;
 import com.example.dpt.pulltorefreshdemo.types.*;
-import in.srain.cube.views.ptr.PtrClassicFrameLayout;
-import in.srain.cube.views.ptr.PtrDefaultHandler;
-import in.srain.cube.views.ptr.PtrFrameLayout;
+import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrClassicFrameLayout;
+import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrDefaultHandler;
+import com.letv.leui.widget.ultra.pull2refresh.ptr.PtrFrameLayout;
 
 
 public class DemoListActivity extends Activity {
@@ -63,7 +63,7 @@ public class DemoListActivity extends Activity {
                     public void run() {
                         mPtrFrame.refreshComplete();
                     }
-                }, 1500);
+                }, 800);
             }
 
             @Override
